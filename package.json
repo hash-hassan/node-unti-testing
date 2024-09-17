@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Node JS Unit Testing Workshop",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
@@ -32,6 +33,7 @@
     "sinon": "^19.0.2"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "nodemon": "^3.1.4"
   }
 }
