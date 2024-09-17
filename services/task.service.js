@@ -1,27 +1,27 @@
-const { Task } = require('../models');
+import { Task } from '../models/index.js';
 
 // Create task
-const createTask = async (taskData) => {
+export const createTask = async (taskData) => {
   const task = new Task(taskData);
   await task.save();
   return task;
 };
 
 // Get tasks by user
-const getTasksByUser = async (userId) => {
+export const getTasksByUser = async (userId) => {
   const tasks = await Task.find({ userId });
   return tasks;
 };
 
 // Get task by ID
-const getTaskById = async (taskId, userId) => {
+export const getTaskById = async (taskId, userId) => {
   const task = await Task.findById(taskId);
   if (!task || task.userId.toString() !== userId) throw new Error('Task not found');
   return task;
 };
 
 // Update task
-const updateTask = async (taskId, updatedData, userId) => {
+export const updateTask = async (taskId, updatedData, userId) => {
   const task = await Task.findById(taskId);
   if (!task || task.userId.toString() !== userId) throw new Error('Task not found');
 
@@ -31,7 +31,7 @@ const updateTask = async (taskId, updatedData, userId) => {
 };
 
 // Delete task
-const deleteTask = async (taskId, userId) => {
+export const deleteTask = async (taskId, userId) => {
   const task = await Task.findById(taskId);
   if (!task || task.userId.toString() !== userId) throw new Error('Task not found');
 
@@ -39,4 +39,3 @@ const deleteTask = async (taskId, userId) => {
   return true;
 };
 
-module.exports = { createTask, getTasksByUser, getTaskById, updateTask, deleteTask };

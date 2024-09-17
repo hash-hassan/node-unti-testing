@@ -1,7 +1,7 @@
-const AuthRoutes = require('./auth.routes');
-const TaskRoutes = require('./task.routes');
+import AuthRoutes from './auth.routes.js';
+import TaskRoutes from './task.routes.js';
 
-module.exports = {
+export {
     AuthRoutes,
     TaskRoutes
 }

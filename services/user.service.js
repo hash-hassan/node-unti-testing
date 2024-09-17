@@ -1,10 +1,8 @@
-import { User } from '../models'
+import { User } from '../models/index.js'
 
 // Get user by ID
-const getUserById = async (userId) => {
+export const getUserById = async (userId) => {
   const user = await User.findById(userId);
   if (!user) throw new Error('User not found');
   return user;
 };
-
-module.exports = { getUserById };

@@ -1,8 +1,7 @@
-const express = require('express');
-const { AuthRoutes, TaskRoutes } = require('./routes');  // Import the routes from the routes folder
-const bodyParser = require('body-parser');
-const connectDB = require('./config/db-config');
-
+import express from 'express';
+import { AuthRoutes, TaskRoutes } from './routes/index.js';  // Import the routes from the routes folder
+import bodyParser from 'body-parser';
+import connectDB from './config/db-config.js';
 // Initialize express
 const app = express();
 
@@ -20,4 +19,4 @@ app.use('/api/tasks', TaskRoutes);  // Task routes
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-module.exports = app;  // Export app for testing purposes
+export default app;  // Export app for testing purposes

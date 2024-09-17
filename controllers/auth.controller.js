@@ -1,7 +1,7 @@
-const { registerUser, loginUser } = require('../services/auth.service');
+import { registerUser, loginUser } from '../services/auth.service.js';
 
 // Controller to register a new user
-const createNewUser = async (req, res) => {
+export const createNewUser = async (req, res) => {
   try {
     const result = await registerUser(req.body);
     res.json(result);
@@ -11,7 +11,7 @@ const createNewUser = async (req, res) => {
 };
 
 // Controller to login user
-const loginExistingUser = async (req, res) => {
+export const loginExistingUser = async (req, res) => {
   try {
     const result = await loginUser(req.body.email, req.body.password);
     res.json(result);
@@ -19,5 +19,3 @@ const loginExistingUser = async (req, res) => {
     res.status(400).json({ msg: err.message });
   }
 };
-
-module.exports = { createNewUser, loginExistingUser };
