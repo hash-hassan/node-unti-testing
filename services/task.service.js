@@ -35,7 +35,7 @@ export const deleteTask = async (taskId, userId) => {
   const task = await Task.findById(taskId);
   if (!task || task.userId.toString() !== userId) throw new Error('Task not found');
 
-  await task.remove();
+  await task.deleteOne();
   return true;
 };
 
