@@ -13,7 +13,7 @@ connectDB();
 
 // Routes
 app.use('/api/auth', AuthRoutes);  // Auth routes
-app.use('/api/tasks', TaskRoutes);  // Task routes
+app.use('/api', TaskRoutes);  // Task routes
 
 // Start server
 const PORT = process.env.PORT || 5000;
