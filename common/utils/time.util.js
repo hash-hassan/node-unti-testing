@@ -13,7 +13,7 @@ export const convert24HourTo12HourTime = (twentyFourHourTime) => {
     if (hourPortion > 12) {
         meridian = 'PM'
         hour = hourPortion % 12
-        hour = (hour < 10 && !hour.startsWith('0') ) ? '0' + hour : hour
+        hour = (hour < 10 && !hour.toString().startsWith('0') ) ? '0' + hour : hour
     } else {
         meridian = 'AM'
         hour = hourPortion
@@ -36,7 +36,7 @@ export const convert12HourTo24HourTime = (twelveHourTime) => {
     let minute = timeSections[1]
     if (meridian !== null && meridian.toUpperCase() === 'PM') {
         hour = 12+(hourPortion % 12)
-        hour =(hour < 10 && !hour.startsWith('0') ) ? '0' + hour : hour
+        hour =(hour < 10 && !hour.toString().startsWith('0') ) ? '0' + hour : hour
     } else {
         hour = (hourPortion < 10 && !hourPortion.startsWith('0')) ? '0'+hourPortion : hourPortion
     }
